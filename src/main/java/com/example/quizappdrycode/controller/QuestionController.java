@@ -26,7 +26,7 @@ public class QuestionController {
         return new ResponseEntity<>(questionService.save(question), HttpStatus.CREATED);
     }
 
-    @GetMapping("/allQuestionByLevel")
+    @GetMapping("/allQuestionByLevel/{id}")
     private ResponseEntity<Iterable<Question>> getAllQuestionByLevel(@PathVariable Long id){
         Optional<Level> level = levelService.findById(id);
         if (level.isPresent()){
