@@ -6,13 +6,17 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class Answer {
+public class Level {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String content;
+    private String difficulty;
 
     @ManyToOne
-    private Question question;
+    private Topic Topic;
+
+    @ManyToOne
+    private Quiz quiz;
+
 }

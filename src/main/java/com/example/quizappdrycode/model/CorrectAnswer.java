@@ -4,9 +4,11 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+
 @Entity
 @Data
-public class Answer {
+public class CorrectAnswer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
