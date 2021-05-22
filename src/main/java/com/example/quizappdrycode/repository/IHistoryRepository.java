@@ -1,4 +1,7 @@
 package com.example.quizappdrycode.repository;
 
-public interface IHistoryRepository{
+import com.example.quizappdrycode.model.History;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IHistoryRepository extends JpaRepository<History,Long> {
 }
