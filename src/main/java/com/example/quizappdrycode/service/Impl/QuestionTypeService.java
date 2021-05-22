@@ -2,7 +2,7 @@ package com.example.quizappdrycode.service.Impl;
 
 import com.example.quizappdrycode.model.QuestionType;
 import com.example.quizappdrycode.repository.IQuestionTypeRepository;
-import com.example.quizappdrycode.service.ITypeOfQuestionService;
+import com.example.quizappdrycode.service.IQuestionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,7 @@
 package com.example.quizappdrycode.service.Impl;
 
 import com.example.quizappdrycode.model.Answer;
+import com.example.quizappdrycode.model.Question;
 import com.example.quizappdrycode.repository.IAnswerRepository;
 import com.example.quizappdrycode.service.IAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class AnswerService implements IAnswerService {
         PageRequest pageRequest = PageRequest.of(page, size);
         Page<Answer> answers = answerRepository.findAll(pageRequest);
         return answers.getContent();
+    }
+
+    @Override
+    public Iterable<Answer> findALlAnswerByQuestion(Question question) {
+        return answerRepository.getAnswerByQuestion(question);
     }
 
     @Override
