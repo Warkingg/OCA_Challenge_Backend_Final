@@ -59,5 +59,13 @@ public class AnswerController {
         return new ResponseEntity<>(iAnswerService.save(answer), HttpStatus.OK);
     }
 
-
+    @DeleteMapping("/answers/{id}")
+    public ResponseEntity<Answer> deleteAnswer(@PathVariable Long id) {
+        Optional<Answer> answerOptional = iAnswerService.findById(id);
+        if (!answerOptional.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        iAnswerService.remove(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
