@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class TypeOfQuestionService implements ITypeOfQuestionService {
+public class QuestionTypeService implements IQuestionTypeService {
 
     @Autowired
     private IQuestionTypeRepository iQuestionTypeRepository;
