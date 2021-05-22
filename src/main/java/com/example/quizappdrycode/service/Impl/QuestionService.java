@@ -1,5 +1,6 @@
 package com.example.quizappdrycode.service.Impl;
 
+import com.example.quizappdrycode.model.Level;
 import com.example.quizappdrycode.model.Question;
 import com.example.quizappdrycode.repository.IQuestionRepository;
 import com.example.quizappdrycode.service.IQuestionService;
@@ -20,6 +21,11 @@ public class QuestionService implements IQuestionService {
         PageRequest pageRequest = PageRequest.of(page, size);
         Page<Question> questions = questionRepository.findAll(pageRequest);
         return questions.getContent();
+    }
+
+    @Override
+    public Iterable<Question> findAllByLevel(Level level) {
+        return questionRepository.findAllByLevel(level);
     }
 
     @Override
