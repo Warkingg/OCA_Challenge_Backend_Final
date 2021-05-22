@@ -11,4 +11,5 @@ public interface IGeneralService <T> {
     T save(T model);
 
     void remove(Long id);
+
 }
