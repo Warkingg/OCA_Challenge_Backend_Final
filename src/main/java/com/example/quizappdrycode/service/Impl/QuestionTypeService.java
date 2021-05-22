@@ -1,4 +1,4 @@
 package com.example.quizappdrycode.service.Impl;
 
-public class CategoryService {
+public class QuestionTypeService {
 }
