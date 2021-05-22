@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.Optional;
 
 @RestController
@@ -24,23 +23,13 @@ public class LevelController {
         return new ResponseEntity<>(levelService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Level> getLevel(@PathVariable ("id") Long id) {
-        Optional<Level> levelOptional = levelService.findById(id);
-        return new ResponseEntity<>(levelOptional.get(), HttpStatus.OK);
+    @GetMapping("/GetLevelByTopic/{id}")
+    public ResponseEntity<Iterable<Level>> findAllByTopic(@PathVariable("id") Long id) {
+        Optional<Topic> topicOptional = topicService.findById(id);
+        if (!topicOptional.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        Iterable<Level> levels = levelService.findAllByTopic(topicOptional.get());
+        return new ResponseEntity<>(levels, HttpStatus.OK);
     }
-
-    @Autowired
-    private ITopicService topicService;
-
-//    @GetMapping("/findLevelByTopic/{id}")
-//    public ResponseEntity<Iterable<Level>> findAllByTopic(@PathVariable("id") Long id) {
-//        Optional<Topic> topicOptional = topicService.findById(id);
-//        if (!topicOptional.isPresent()) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//        Iterable<Level> levels = levelService.findAllByTopic(topicOptional.get());
-//        return new ResponseEntity<>(levels, HttpStatus.OK);
-//    }
-
 }

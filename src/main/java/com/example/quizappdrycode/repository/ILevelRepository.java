@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ILevelRepository extends JpaRepository<Level, Long> {
-//    Iterable<Level> findAllByTopic(Topic topic);
+    Iterable<Level> findAllByTopic(Topic topic);
 }
