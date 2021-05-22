@@ -19,7 +19,7 @@ public class Question {
     private QuestionType questionType;
 
     @ManyToOne
-    private Topic topic;
+    private Level level;
 
     @ManyToOne
     private Quiz quiz;
