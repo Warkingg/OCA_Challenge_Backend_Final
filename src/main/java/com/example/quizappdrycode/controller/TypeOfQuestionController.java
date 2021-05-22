@@ -14,19 +14,19 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-public class QuestionTypeController {
+public class QuestionTypeController {   
     @Autowired
-    private TypeOfQuestionService typeOfQuestionService;
+    private QuestionTypeService questionTypeService;
 
-    @GetMapping("/typeOfQuestions")
+    @GetMapping("/QuestionTypes")
     public ResponseEntity<Iterable<QuestionType>> showAll() {
-        Iterable<QuestionType> typeOfQuestions = typeOfQuestionService.findAll();
-        return new ResponseEntity<>(typeOfQuestions, HttpStatus.OK);
+        Iterable<QuestionType> questionTypes = questionTypeService.findAll();
+        return new ResponseEntity<>(questionTypes, HttpStatus.OK);
     }
 
-    @GetMapping("/typeOfQuestions/{id}")
-    public ResponseEntity<QuestionType> getTypeOfQuestion(@PathVariable Long id) {
-        Optional<QuestionType> questionTypeOptional = typeOfQuestionService.findById(id);
+    @GetMapping("/QuestionTypes/{id}")
+    public ResponseEntity<QuestionType> getQuestionType(@PathVariable Long id) {
+        Optional<QuestionType> questionTypeOptional = questionTypeService.findById(id);
         if (questionTypeOptional.isPresent()){
             return new ResponseEntity<>(questionTypeOptional.get(),HttpStatus.OK);
         }
