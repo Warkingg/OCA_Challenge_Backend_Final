@@ -1,3 +1,4 @@
+
 package com.example.quizappdrycode.service.Impl;
 
 import com.example.quizappdrycode.model.CorrectAnswer;
@@ -13,6 +14,7 @@ import java.util.Optional;
 public class CorrectAnswerService implements ICorrectAnswerService {
     @Autowired
     private ICorrectAnswerRepository correctAnswerRepository;
+
     @Override
     public Iterable<CorrectAnswer> findAllByQuestion(Question question) {
         return correctAnswerRepository.findAllByQuestion(question);
