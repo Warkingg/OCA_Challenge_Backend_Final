@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-public class TypeOfQuestionController {
+public class QuestionTypeController {
     @Autowired
     private TypeOfQuestionService typeOfQuestionService;
 
