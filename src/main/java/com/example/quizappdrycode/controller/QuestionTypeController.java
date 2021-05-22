@@ -1,7 +1,7 @@
 package com.example.quizappdrycode.controller;
 
 import com.example.quizappdrycode.model.QuestionType;
-import com.example.quizappdrycode.service.Impl.TypeOfQuestionService;
+import com.example.quizappdrycode.service.Impl.QuestionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-public class QuestionTypeController {   
+public class QuestionTypeController {
     @Autowired
     private QuestionTypeService questionTypeService;
 
