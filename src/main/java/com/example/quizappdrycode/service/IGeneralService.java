@@ -1,5 +1,8 @@
 package com.example.quizappdrycode.service;
 
+<<<<<<< HEAD
+public interface IGeneralService {
+=======
 import java.util.Optional;
 
 public interface IGeneralService <T> {
@@ -11,4 +14,5 @@ public interface IGeneralService <T> {
 
     void remove(Long id);
 
+>>>>>>> c4c25c16806bf531b1df1c5df87d4f3123d531c1
 }
