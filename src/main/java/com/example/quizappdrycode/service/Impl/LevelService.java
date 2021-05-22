@@ -36,6 +36,6 @@ public class LevelService implements ILevelService {
 
     @Override
     public Iterable<Level> findAllByTopic(Topic topic) {
-        return levelRepository.findAllByTopic(topic);
+        return null;
     }
 }
