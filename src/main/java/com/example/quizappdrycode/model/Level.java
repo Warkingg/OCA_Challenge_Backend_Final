@@ -14,7 +14,7 @@ public class Level {
     private String difficulty;
 
     @ManyToOne
-    private Topic Topic;
+    private Topic topic;
 
     @ManyToOne
     private Quiz quiz;
