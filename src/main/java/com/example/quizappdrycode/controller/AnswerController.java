@@ -39,4 +39,25 @@ public class AnswerController {
         Iterable<Answer> answers = iAnswerService.findALlAnswerByQuestion(questionOptional.get());
         return new ResponseEntity<>(answers, HttpStatus.OK);
     }
+
+    @GetMapping("/getAnswer/{id}")
+    public ResponseEntity<Answer> getAnswerById(@PathVariable Long id) {
+        Optional<Answer> answer = iAnswerService.findById(id);
+        if (answer.isPresent()){
+            return new ResponseEntity<>(answer.get(),HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PutMapping("/answers/{id}")
+    public ResponseEntity<Answer> updateAnswer(@RequestBody Answer answer, @PathVariable Long id) {
+        Optional<Answer> answerOptional = iAnswerService.findById(id);
+        if (!answerOptional.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        answer.setId(answerOptional.get().getId());
+        return new ResponseEntity<>(iAnswerService.save(answer), HttpStatus.OK);
+    }
+
+
 }
