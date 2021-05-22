@@ -1,4 +1,4 @@
 package com.example.quizappdrycode.service;
 
-public interface ICategoryService {
+public interface ICorrectAnswerService {
 }

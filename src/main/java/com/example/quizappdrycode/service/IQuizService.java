@@ -1,4 +1,6 @@
 package com.example.quizappdrycode.service;
 
-public interface IQuizService {
+import com.example.quizappdrycode.model.Quiz;
+
+public interface IQuizService extends IGeneralService<Quiz> {
 }

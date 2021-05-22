@@ -8,7 +8,7 @@ public interface IGeneralService <T> {
 
     Optional<T> findById(Long id);
 
-    T save(T model);
+    T save(T t);
 
     void remove(Long id);
 
