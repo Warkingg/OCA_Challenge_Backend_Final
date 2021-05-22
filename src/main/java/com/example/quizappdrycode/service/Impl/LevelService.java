@@ -34,8 +34,9 @@ public class LevelService implements ILevelService {
         levelRepository.deleteById(id);
     }
 
-    @Override
-    public Iterable<Level> findAllByTopic(Topic topic) {
-        return null;
-    }
+//    @Override
+//    public Iterable<Level> findAllByTopic(Topic topic) {
+//        return levelRepository.findAllByTopic(topic);
+//    }
+
 }
