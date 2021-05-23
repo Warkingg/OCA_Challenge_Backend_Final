@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
+@RequestMapping("/answers")
 public class AnswerController {
 
     @Autowired
@@ -21,8 +22,8 @@ public class AnswerController {
     @Autowired
     private IQuestionService iQuestionService;
 
-    @PostMapping("/answers/{id}")
-    public ResponseEntity<Answer> createAnswer(@RequestBody Answer answer, @PathVariable Long id) {
+    @PostMapping("/create/{questionId}")
+    public ResponseEntity<Answer> createAnswer(@RequestBody Answer answer, @PathVariable("questionId") Long id) {
         Optional<Question> questionOptional = iQuestionService.findById(id);
         if (!questionOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -30,8 +31,8 @@ public class AnswerController {
         return new ResponseEntity<>(iAnswerService.save(answer), HttpStatus.OK);
     }
 
-    @GetMapping("/answers/{id}")
-    public ResponseEntity<Iterable<Answer>> showAllAnswerByQuestion(@PathVariable Long id) {
+    @GetMapping("/getAllAnswerByQuestion/{questionId}")
+    public ResponseEntity<Iterable<Answer>> showAllAnswerByQuestion(@PathVariable("questionId") Long id) {
         Optional<Question> questionOptional = iQuestionService.findById(id);
         if (!questionOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -40,7 +41,7 @@ public class AnswerController {
         return new ResponseEntity<>(answers, HttpStatus.OK);
     }
 
-    @GetMapping("/getAnswer/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Answer> getAnswerById(@PathVariable Long id) {
         Optional<Answer> answer = iAnswerService.findById(id);
         if (answer.isPresent()){
@@ -49,7 +50,7 @@ public class AnswerController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping("/answers/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Answer> updateAnswer(@RequestBody Answer answer, @PathVariable Long id) {
         Optional<Answer> answerOptional = iAnswerService.findById(id);
         if (!answerOptional.isPresent()) {
@@ -59,7 +60,7 @@ public class AnswerController {
         return new ResponseEntity<>(iAnswerService.save(answer), HttpStatus.OK);
     }
 
-    @DeleteMapping("/answers/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Answer> deleteAnswer(@PathVariable Long id) {
         Optional<Answer> answerOptional = iAnswerService.findById(id);
         if (!answerOptional.isPresent()) {
