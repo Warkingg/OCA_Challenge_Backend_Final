@@ -18,6 +18,9 @@ public class LevelController {
     @Autowired
     private ILevelService levelService;
 
+    @Autowired
+    private ITopicService topicService;
+
     @GetMapping
     public ResponseEntity<Iterable<Level>> getLevels() {
         return new ResponseEntity<>(levelService.findAll(), HttpStatus.OK);
