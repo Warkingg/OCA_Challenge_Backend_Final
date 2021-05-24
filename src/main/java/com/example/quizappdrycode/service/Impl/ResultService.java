@@ -1,6 +1,5 @@
 package com.example.quizappdrycode.service.Impl;
 
-import com.example.quizappdrycode.model.History;
 import com.example.quizappdrycode.model.Result;
 import com.example.quizappdrycode.model.User;
 import com.example.quizappdrycode.repository.IResultRepository;
@@ -36,17 +35,9 @@ public class ResultService implements IResultService {
     }
 
     @Override
-    public Iterable<Result> findAllByHistory(History history) {
-        return resultRepository.findAllByHistory(history);
-    }
-
-    @Override
     public Iterable<Result> findAllByUser(User user) {
         return resultRepository.findAllByUser(user);
     }
 
-    @Override
-    public Result findByHistoryAndUser(History history, User user) {
-        return resultRepository.findByHistoryAndUser(history,user);
-    }
+
 }
