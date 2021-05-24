@@ -13,6 +13,10 @@ public class Answer {
 
     private String content;
 
+    private boolean isAnswer;
+
+    private boolean selected;
+
     @ManyToOne
     private Question question;
 }

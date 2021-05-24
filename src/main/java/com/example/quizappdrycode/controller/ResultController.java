@@ -1,14 +1,7 @@
 package com.example.quizappdrycode.controller;
 
-import com.example.quizappdrycode.model.History;
 import com.example.quizappdrycode.model.Result;
-import com.example.quizappdrycode.model.User;
-import com.example.quizappdrycode.service.IHistoryService;
 import com.example.quizappdrycode.service.IResultService;
-import com.example.quizappdrycode.service.IUserService;
-import com.example.quizappdrycode.service.Impl.HistoryService;
-import com.example.quizappdrycode.service.Impl.ResultService;
-import com.example.quizappdrycode.service.Impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,21 +16,10 @@ public class ResultController {
     @Autowired
     private IResultService resultService;
 
-    @Autowired
-    private IHistoryService historyService;
 
     //@Autowired
     //private IUserService userService;
 
-    @GetMapping("/findAllResultByExam")
-    public ResponseEntity<Iterable<Result>> findAllResultByExam(@RequestParam("history") String history) {
-        History currentHistory = historyService.findByName(history);
-        if (currentHistory == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        Iterable<Result> results = resultService.findAllByHistory(currentHistory);
-        return new ResponseEntity<>(results, HttpStatus.OK);
-    }
 
     // @GetMapping("/findAllResultByUser")
     //public ResponseEntity<Iterable<Result>> findAllResultByUser(@RequestParam("user") String user) {

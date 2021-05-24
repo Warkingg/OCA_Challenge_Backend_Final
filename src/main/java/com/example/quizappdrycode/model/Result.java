@@ -14,8 +14,5 @@ public class Result {
     private double score;
 
     @ManyToOne
-    private History history;
-
-    @ManyToOne
     private User user;
 }

@@ -15,6 +15,8 @@ public class Question {
 
     private boolean status;
 
+    private boolean answered;
+
     @ManyToOne
     private QuestionType questionType;
 
