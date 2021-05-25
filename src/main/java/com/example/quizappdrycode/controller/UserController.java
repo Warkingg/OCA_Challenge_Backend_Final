@@ -110,13 +110,13 @@ public class UserController {
         return new ResponseEntity<>(userServiceById.get(), HttpStatus.OK);
 
     }
-//
-//    @PutMapping(value = "/new-password/{id}")
-//    public ResponseEntity<User> updatePassword(@PathVariable Long id, @RequestBody User user) {
-//        Optional<User> userOptional = this.userService.findById(id);
-//        if (!userOptional.isPresent()) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
+
+    @PutMapping(value = "/new-password/{id}")
+    public ResponseEntity<User> updatePassword(@PathVariable Long id, @RequestBody User user) {
+        Optional<User> userOptional = this.userService.findById(id);
+        if (!userOptional.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 //        user.setId(userOptional.get().getId());
 //        user.setUsername(userOptional.get().getUsername());
 //        user.setEmail(userOptional.get().getEmail());
@@ -126,5 +126,5 @@ public class UserController {
 //        user.setPhoneNumber(userOptional.get().getPhoneNumber());
 //        userService.save(user);
 //        return new ResponseEntity<>(user, HttpStatus.OK);
-//    }
+    }
 }
