@@ -103,4 +103,28 @@ public class UserController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping("/find/{id}")
+    public ResponseEntity<User> getQuizCategoryById(@PathVariable("id") Long id) {
+        Optional<User> userServiceById = this.userService.findById(id);
+        return new ResponseEntity<>(userServiceById.get(), HttpStatus.OK);
+
+    }
+//
+//    @PutMapping(value = "/new-password/{id}")
+//    public ResponseEntity<User> updatePassword(@PathVariable Long id, @RequestBody User user) {
+//        Optional<User> userOptional = this.userService.findById(id);
+//        if (!userOptional.isPresent()) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//        user.setId(userOptional.get().getId());
+//        user.setUsername(userOptional.get().getUsername());
+//        user.setEmail(userOptional.get().getEmail());
+//        user.setRoles(userOptional.get().getRoles());
+//        user.setFirstName(userOptional.get().getFirstName());
+//        user.setLastName(userOptional.get().getLastName());
+//        user.setPhoneNumber(userOptional.get().getPhoneNumber());
+//        userService.save(user);
+//        return new ResponseEntity<>(user, HttpStatus.OK);
+//    }
 }
