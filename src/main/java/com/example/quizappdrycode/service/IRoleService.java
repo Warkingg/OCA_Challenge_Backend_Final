@@ -1,4 +1,7 @@
 package com.example.quizappdrycode.service;
 
-public interface IRoleService {
+import com.example.quizappdrycode.model.Role;
+
+public interface IRoleService extends IGeneralService<Role> {
+    Role findByName(String name);
 }
