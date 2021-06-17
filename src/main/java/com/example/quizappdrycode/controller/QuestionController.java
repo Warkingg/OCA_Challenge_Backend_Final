@@ -21,9 +21,13 @@ public class QuestionController {
     @Autowired
     private LevelService levelService;
 
-    @PostMapping("/questions")
-    public ResponseEntity<Question> createQuestion(@RequestBody Question question) {
-        return new ResponseEntity<>(questionService.save(question), HttpStatus.CREATED);
+    @PostMapping("/questions/{levelId}")
+    public ResponseEntity<Question> createQuestion(@PathVariable("levelId") Long id, @RequestBody Question question) {
+        Optional<Level> levelOptional = levelService.findById(id);
+        if (!levelOptional.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(questionService.save(question), HttpStatus.OK);
     }
 
     @GetMapping("/allQuestionByLevel/{id}")
